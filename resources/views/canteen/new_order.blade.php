@@ -34,26 +34,60 @@
                 </table>
 
                 <br>
-                <table class="table table-bordered">
-                  <thead>                  
-                    <tr>
-                      <th>Total : </th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
+                <div class="card" style="width: 18rem;">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">TOTAL = </li>
+                  </ul>
+                </div>
               <!-- /.card-body -->
 
-              <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              <div class="container">
+                <div class="row">
+
+                  <div class="col-sm">
+                    <div class="row">
+                      <div class="card" style="width: 18rem; margin-right:10px;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"> 
+                           <input type = "hidden" id="food" value="Menu A">
+                          Menu A </h5>
+                          <p class="card-text">Rp...</p>
+                          <button class="fa fa-plus" aria-hidden="true" onclick="food()"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm">
+                    <div class="row">
+                      <div class="card" style="width: 18rem; margin-right:10px;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">Menu B</h5>
+                          <p class="card-text">Rp...</p>
+                          <a href="#" class="fa fa-plus" aria-hidden="true"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm">
+                    <div class="row">
+                      <div class="card" style="width: 18rem; margin-right:10px;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">Menu C</h5>
+                          <p class="card-text">Rp...</p>
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                          <a href="#" class="fa fa-plus" aria-hidden="true"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
     </section>
 
 @stop

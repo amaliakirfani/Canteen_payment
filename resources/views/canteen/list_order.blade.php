@@ -24,16 +24,7 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
+                    <td></td>
                     <td>OmniWeb 5.5</td>
                     <td>OSX.4+</td>
                     <td>420</td>

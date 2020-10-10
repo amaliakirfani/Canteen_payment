@@ -18,12 +18,11 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview menu-open">
-            <a href="/school" class="nav-link active">
+          <li class="nav-item">
+            <a href="/menu" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
               Daftar Menu
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -55,12 +54,11 @@
             </ul>
           <!-- menu school -->
 
-          <li class="nav-item has-treeview menu-open">
-            <a href="/users" class="nav-link active">
+          <li class="nav-item">
+            <a href="/users" class="nav-link">
             <i class="nav-icon fas fa-user-edit"></i>
               <p>
                 Users
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
