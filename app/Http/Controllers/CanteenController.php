@@ -7,40 +7,31 @@ use Illuminate\Support\Facades\Http;
 
 class CanteenController extends Controller
 {
-    public function show_menu()
+    public function show_menu(Request $r)
     {
-        return view('canteen.show_menu');
+        if ($r->isMethod('POST') ){
+            $menu_name = $r->input('menu_name');
+            $menu_image = $r->input('menu_image');
+            $menu_price = $r->input('menu_price');
+
+             $response = Http::post(env('CANTEEN_API') . '/v1/menu', [
+            'menu_name' => $menu_name,
+            'menu_image' => $menu_name,
+            'menu_price' => $menu_price,
+        ]);
+    };
+    
+        $menu_list = Http::get(env('CANTEEN_API') . '/v1/menu_list');
+        $data = [
+            "menu_list" => $menu_list,
+        ];
+
+       
+
+        return view('canteen.show_menu', ['menu' => $menu_list]);
     }
 
-    public function new_order(Request $r)
-    {
-        if ($r->isMethod('POST')) {
-            $menu_id = $r->input('menu_id');
-
-            if (empty($menu_id)) {
-                return response()->json([
-                    "code" => 400,
-                    "message" => "Silahkan Pilih Menu Terlebih Dahulu",
-                ], 400);
-            }
-
-            $r = Http::post(env('CANTEEN_API') . '/v1/neworder', [
-                "menu_id" => $menu_id,
-            ]);
-
-            if ($r['code'] == 200) {
-                return response()->json([
-                    "code" => 2200,
-                    "message" => "success order",
-                ]);
-            } else {
-                return response()->json([
-                    "code" => 2300,
-                    "message" => "failed order",
-                ]);
-            }
-
-        }
+    public function new_order(Request $r){
 
         $menu_list = Http::get(env('CANTEEN_API') . '/v1/menu_list');
         $data = [
@@ -52,11 +43,21 @@ class CanteenController extends Controller
 
     public function list_order()
     {
-        return view('canteen.list_order');
+        $order_list = Http::get(env('CANTEEN_API') . '/v1/order_list');
+        $data = [
+            "order_list" => $order_list,
+        ];
+        // return $order_list;
+        return view('canteen.list_order', ['data' => $data]);
     }
 
     public function users()
     {
-        return view('canteen.users');
+        $users_list = Http::get(env('CANTEEN_API') . '/v1/users_list');
+        $data = [
+            "users_list" => $users_list,
+        ];
+        
+        return view('canteen.users', ['data' => $data]);
     }
 }

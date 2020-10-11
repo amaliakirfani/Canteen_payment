@@ -13,72 +13,27 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
-                  <thead>
+                <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>RFID</th>
-                    <th>Jumlah Uang</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Pembeli</th>
+                    <th scope="col">RFID</th>
+                    <th scope="col">Jumlah Uang</th>
                   </tr>
-                  </thead>
-                  <tbody>
+                </thead>
+                <tbody>
+
+                @php $no = 1; @endphp
+
+                  @foreach($data['users_list']['data'] as $item)
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
+                    <td>{{ $no++ }}</td>
+                    <td>{{$item['u_name']}}</td>
+                    <td>{{$item['u_rfid']}}</td>
+                    <td>Rp {{number_format($item['u_money'])}}</td>
                   </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>OmniWeb 5.5</td>
-                    <td>OSX.4+</td>
-                    <td>420</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>iPod Touch / iPhone</td>
-                    <td>iPod</td>
-                    <td>420.1</td>
-                  </tr>
-                  <tr>
-                    <td>Webkit</td>
-                    <td>S60</td>
-                    <td>S60</td>
-                    <td>413</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 7.0</td>
-                    <td>Win 95+ / OSX.1+</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 7.5</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 8.0</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 8.5</td>
-                    <td>Win 95+ / OSX.2+</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>Presto</td>
-                    <td>Opera 9.2</td>
-                    <td>Win 88+ / OSX.3+</td>
-                    <td>-</td>
-                  </tr>
-                  </tbody>
+                  @endforeach
+                </tbody>
                 </table>
               </div>
               <!-- /.card-body -->

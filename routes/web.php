@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/login', 'LoginController@login');
-Route::get('/menu', 'CanteenController@show_menu');
+Route::match(['GET', 'POST'], '/menu', 'CanteenController@show_menu');
 Route::match(['GET', 'POST'], '/new_order', 'CanteenController@new_order');
 Route::get('/list_order', 'CanteenController@list_order');
 Route::get('/users', 'CanteenController@users');

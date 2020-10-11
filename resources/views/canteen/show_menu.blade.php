@@ -1,4 +1,4 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 @section('content')
 
     <!-- Main content -->
@@ -27,7 +27,7 @@
             </button>
           </div>
           <div class="card-body">
-          <form action="/menu/create" method="POST">
+          <form action="/menu" method="POST">
                   {{csrf_field ()}}
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nama Menu</label>
@@ -50,7 +50,7 @@
                   
                   <div class="form-group">
                     <label for="exampleInputPassword1">Harga Makanan/Minuman</label>
-                    <input type="text" name="menu_name" class="form-control" id="exampleInputPassword1" placeholder="Input harga">
+                    <input type="text" name="menu_price" class="form-control" id="exampleInputPassword1" placeholder="Input harga">
                   </div>
 
                 <!-- /.card-body -->
@@ -72,62 +72,32 @@
       </div>
 
       <div class="container">
-        <div class="row">
-
-          <div class="col-sm">
             <div class="row">
-              <div class="card" style="width: 18rem; margin-right:10px;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
 
-    <div class="col-sm">
-  <div class="row">
-    <div class="card" style="width: 18rem; margin-right:10px;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-    </div>
+                @foreach ($menu['data'] as $item)
+                <div class="col-sm">
+                    <div class="row">
+                        <div class="card" style="width: 18rem; margin-right:10px;">
+                            <img src="{{$item['menu_image']}}" class="card-img-top" alt="Menu">
 
-    <div class="col-sm">
-    <div class="row">
-    <div class="card" style="width: 18rem; margin-right:10px;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-    </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
 
-  <div class="col-sm">
-  <div class="row">
-    <div class="card" style="width: 18rem; margin-right:10px;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-    </div>
-    
-  </div>
-</div>
+                                     {{$item['menu_name']}}
+                                      </h5>
+                                    <p class="card-text">{{number_format($item['price'])}}</p>
+                                    <input type="hidden" readonly id="inc" />
+                                    <input type="hidden" readonly id="total_price" />
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+@endforeach
+    <!-- </form> -->
+                        </div>
+                    </div>
 
     </section>
 
